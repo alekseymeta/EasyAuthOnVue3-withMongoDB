@@ -3,13 +3,11 @@ import { getDatabase, ref, set } from "firebase/database";
 
 export const auth = {
   state: () => ({
-    email: ''
+
   }),
   getters: {},
   mutations: {
-    SET_EMAIL(state, email) {
-      state.email = email
-    },
+
   },
   actions:{
     async login({dispatch, commit}, {email, password}) {
@@ -17,31 +15,38 @@ export const auth = {
         await signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user.email;
-            commit('SET_EMAIL', user )
           })
           .catch((error) => {
             throw error
           });
     },
 
-    async logout() {
+    async logout({commit}) {
       const auth = getAuth();
       await auth.signOut()
+        commit('CLEAR_USERDATAINFO', '')
     },
 
-    async register({commit} , {email, password}) {
+    async register({commit, dispatch} , {email, password}) {
       const auth = getAuth();
       await createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          const db = getDatabase();
-          set(ref(db, 'users/' + ''), {
-            email: email
-          });
-          commit('SET_EMAIL', email )
+        .then(async () => {
+            const db = getDatabase();
+            const uid = await dispatch('getUid')
+            await set(ref(db, 'users/' + uid + '/info'), {
+                bill: 10000,
+                email: email,
+                name: email.split('@',1)[0]
+            });
         })
         .catch((error) => {
           throw error
         });
-    }
+    },
+
+      getUid() {
+        const user = getAuth().currentUser
+          return user ? user.uid : null
+      }
   }
 }

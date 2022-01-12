@@ -55,8 +55,8 @@
         <button type="submit" class="btn btn-primary w-100 mt-3">Sign up</button>
         <div class="row mt-3 text-center">
           <div class="qwst">
-            Уже есть аккаунт?
-            <router-link to="login">Войти</router-link>
+            Do you've an account?
+            <router-link to="login">Sign in</router-link>
           </div>
         </div>
       </form>
@@ -124,4 +124,7 @@ export default {
   color: red;
 }
 
+.qwst {
+  font-size: 14px;
+}
 </style>

@@ -10,10 +10,10 @@
 
 <script>
 
-import navBar from "./components/navBar";
+import navBar from "./components/global/navBar";
 import EmptyLayout from "./layouts/EmptyLayout";
 import MainLayout from "./layouts/MainLayout";
-import alertMsg from "./components/alertMsg";
+import alertMsg from "./components/global/alertMsg";
 
 export default {
   name: 'Home',
@@ -31,11 +31,13 @@ export default {
 
 body {
   font-family: 'Gilroy', sans-serif !important;
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .alert__b {
   max-width: 300px;
   margin: 0 auto;
 }
+
+
 </style>

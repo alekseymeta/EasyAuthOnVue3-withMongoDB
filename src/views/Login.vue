@@ -29,8 +29,8 @@
         <button type="submit" class="btn btn-primary w-100 mt-3">Sign in</button>
         <div class="row mt-3 text-center">
           <div class="qwst">
-            Нет аккаунта?
-            <router-link to="/register">Зарегистрироваться</router-link>
+            Do you haven't account?
+            <router-link to="/register">Create account</router-link>
           </div>
         </div>
       </form>
@@ -104,5 +104,9 @@ export default {
 }
 .is-invalid {
   padding-right: calc(1.5em + 0rem) !important;
+}
+
+.qwst {
+  font-size: 14px;
 }
 </style>

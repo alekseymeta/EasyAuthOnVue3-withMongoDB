@@ -1,12 +1,13 @@
 <template>
-  <div>
-    MainLayout
-  </div>
+    <router-view/>
 </template>
 
 <script>
 export default {
-  name: "MainLayout"
+  name: "MainLayout",
+  async mounted() {
+    await this.$store.dispatch('fetchInfo')
+  }
 }
 </script>
 

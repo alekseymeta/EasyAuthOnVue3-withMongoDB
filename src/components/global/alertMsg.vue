@@ -21,7 +21,7 @@ export default {
   width: 100%;
   z-index: 10000;
   max-width: inherit;
-  right: 15px;
+  top: 10px;
 }
 
 .fade-enter-active, .fade-leave-active {
