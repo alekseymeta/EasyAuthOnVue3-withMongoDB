@@ -1,9 +1,11 @@
 import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 
 export const userInfo = {
     state: () => ({
         userDataInfo: {},
+        userDataInfoTime: {}
     }),
     getters: {},
     mutations: {
@@ -12,6 +14,9 @@ export const userInfo = {
         },
         CLEAR_USERDATAINFO(state) {
             state.userDataInfo = {}
+        },
+        APPEND_USERDATAINFO(state, arr) {
+            state.userDataInfoTime = arr
         }
     },
     actions: {
@@ -25,6 +30,15 @@ export const userInfo = {
                 const data = snapshot.val();
                 commit('SET_USERDATAINFO', data)
             });
+
+            const arr = {
+                'creationTime': getAuth().currentUser.metadata.creationTime,
+                'lastSignInTime': getAuth().currentUser.metadata.lastSignInTime,
+            }
+
+            console.log(arr)
+
+            await commit("APPEND_USERDATAINFO", arr)
 
 
         }

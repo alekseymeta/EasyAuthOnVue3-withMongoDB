@@ -1,5 +1,6 @@
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
+import router from "../router";
 
 export const auth = {
   state: () => ({
@@ -24,7 +25,9 @@ export const auth = {
     async logout({commit}) {
       const auth = getAuth();
       await auth.signOut()
-        commit('CLEAR_USERDATAINFO', '')
+        await commit('CLEAR_USERDATAINFO', '')
+        await commit('SET_MSG', 'Вы вышли из системы')
+        await router.push('/login?message=logout')
     },
 
     async register({commit, dispatch} , {email, password}) {

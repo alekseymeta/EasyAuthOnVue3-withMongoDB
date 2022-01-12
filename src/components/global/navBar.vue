@@ -28,8 +28,8 @@
             </a>
             <ul class="dropdown-menu position-absolute shadow border-0" aria-labelledby="navbarDropdownMenuLink">
               <li><div class="dropdown-item bill">Your bill: {{$store.state.userInfo.userDataInfo.bill}}</div></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a @click="logout" class="dropdown-item" href="#">Выйти</a></li>
+              <router-link class="dropdown-item" to="/profile">Profile</router-link>
+              <li><a @click="$store.dispatch('logout')" class="dropdown-item" href="#">Выйти</a></li>
             </ul>
           </li>
         </ul>
@@ -42,14 +42,7 @@
 <script>
 
 export default {
-  name: "navBar",
-  methods: {
-    async logout() {
-      await this.$store.dispatch('logout')
-      await this.$store.commit('SET_MSG', 'Вы вышли из системы')
-      await this.$router.push('/login?message=logout')
-    }
-  }
+  name: "navBar"
 }
 
 </script>

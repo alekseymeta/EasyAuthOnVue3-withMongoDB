@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
   {
@@ -13,6 +12,12 @@ const routes = [
     name: 'About',
     meta: { layout: 'main' },
     component: () => import('@/views/About.vue')
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    meta: { layout: 'main' },
+    component: () => import('@/views/Profile.vue')
   },
   {
     path: '/login',
