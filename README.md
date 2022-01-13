@@ -9,10 +9,10 @@ Used MongoDB and bootstrap.
 
 ## MongoDB Config
 
-Create mongoConfig.js on /src/
+Create .env on /
 
 ```
-export const mongoConfig = 'You application id';
+VUE_APP_MONGO_ID=yourApplicationId
 
 ```
 
