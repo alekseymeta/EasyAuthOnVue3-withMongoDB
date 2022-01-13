@@ -1,5 +1,6 @@
 import * as Realm from "realm-web";
-const auth = Realm.getApp('application-0-wkqnz');
+import {mongoConfig} from "../mongoConfig";
+const auth = Realm.getApp(mongoConfig);
 
 
 export const userInfo = {
