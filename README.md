@@ -1,4 +1,4 @@
-# EasyAuthOnVue3-withFirebase
+# EasyAuthOnVue3-withMongoDB
 
 <br>
 
