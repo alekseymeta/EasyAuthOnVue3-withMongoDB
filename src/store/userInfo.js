@@ -1,5 +1,5 @@
-import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth } from "firebase/auth";
+import * as Realm from "realm-web";
+const auth = Realm.getApp('application-0-wkqnz');
 
 
 export const userInfo = {
@@ -20,25 +20,22 @@ export const userInfo = {
         }
     },
     actions: {
-        async fetchInfo({commit, dispatch}) {
-            const uid = await dispatch('getUid')
-            const db = await getDatabase();
+        async fetchInfo({commit}) {
 
-            const userInfoRef = await ref(db,'users/'+uid+'/info')
+            await auth.currentUser.refreshCustomData();
 
-            onValue(userInfoRef, (snapshot) => {
-                const data = snapshot.val();
-                commit('SET_USERDATAINFO', data)
-            });
+            const data = await auth.currentUser.customData
 
-            const arr = {
-                'creationTime': getAuth().currentUser.metadata.creationTime,
-                'lastSignInTime': getAuth().currentUser.metadata.lastSignInTime,
-            }
+            commit('SET_USERDATAINFO', data)
 
-            console.log(arr)
-
-            await commit("APPEND_USERDATAINFO", arr)
+            // const arr = {
+            //     'creationTime': getAuth().currentUser.metadata.creationTime,
+            //     'lastSignInTime': getAuth().currentUser.metadata.lastSignInTime,
+            // }
+            //
+            // console.log(arr)
+            //
+            // await commit("APPEND_USERDATAINFO", arr)
 
 
         }
