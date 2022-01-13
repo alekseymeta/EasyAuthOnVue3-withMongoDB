@@ -3,23 +3,16 @@
 <br>
 
 This is clean template on Vue3 with registration and auth.<br> 
-Used firebase and bootstrap.
+Used MongoDB and bootstrap.
 
 <br>
 
-## FireBase Config
+## MongoDB Config
 
 Create mongoConfig.js on /src/
 
 ```
-export const mongoConfig = {
-  apiKey: "yourKey",
-  authDomain: "yourBase.firebaseapp.com",
-  projectId: "yourBase",
-  storageBucket: "yourBase.appspot.com",
-  messagingSenderId: "yourId",
-  appId: "yourAppId"
-};
+export const mongoConfig = 'You application id';
 
 ```
 
