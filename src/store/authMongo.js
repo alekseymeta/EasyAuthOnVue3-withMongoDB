@@ -1,7 +1,6 @@
 import router from "../router";
 import * as Realm from "realm-web";
-import {mongoConfig} from "../mongoConfig";
-const auth = Realm.getApp(mongoConfig);
+const auth = Realm.getApp(process.env.VUE_APP_MONGO_ID);
 
 
 export const authMongo = {
