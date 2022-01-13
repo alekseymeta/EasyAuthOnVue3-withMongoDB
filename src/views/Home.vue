@@ -6,10 +6,11 @@
 </template>
 
 <script>
+import Spinner from '@/components/global/spinner'
 
 export default {
   name: 'Home',
-  components:{ Spinner },
+  components: { Spinner },
   data() {
     return {
       loading: false

@@ -3,15 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 // import messagePlugin from './utils/messagePlugin'
-import Spinner from './components/global/spinner'
+import {mongoConfig} from "./mongoConfig";
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import "bootstrap"
 import "./assets/Font/stylesheet.css"
+import Spinner from './components/global/spinner'
+
 
 import * as Realm from "realm-web";
-new Realm.App({id: 'application-0-wkqnz'});
+new Realm.App({id: mongoConfig});
 
 
 
