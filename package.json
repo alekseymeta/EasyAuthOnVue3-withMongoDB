@@ -15,6 +15,10 @@
     "bootstrap-icons": "^1.7.2",
     "core-js": "^3.6.5",
     "firebase": "^9.6.2",
+    "mongoose": "^6.1.6",
+    "react-native": "^0.66.4",
+    "realm": "^10.11.0",
+    "realm-web": "^1.5.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"

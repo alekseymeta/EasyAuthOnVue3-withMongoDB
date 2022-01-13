@@ -9,10 +9,10 @@ Used firebase and bootstrap.
 
 ## FireBase Config
 
-Create firebaseConfig.js on /src/
+Create mongoConfig.js on /src/
 
 ```
-export const firebaseConfig = {
+export const mongoConfig = {
   apiKey: "yourKey",
   authDomain: "yourBase.firebaseapp.com",
   projectId: "yourBase",

@@ -71,7 +71,7 @@ export default {
         await this.$router.push('/')
       }
        catch(e) {
-        this.$store.commit('SET_MSG', messages[e.message])
+        this.$store.commit('SET_MSG', messages[e.error])
          console.log(e.message)
        }
 
