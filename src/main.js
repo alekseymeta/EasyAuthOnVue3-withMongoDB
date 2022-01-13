@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import messagePlugin from './utils/messagePlugin'
+// import messagePlugin from './utils/messagePlugin'
 import Spinner from './components/global/spinner'
 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -19,7 +19,7 @@ new Realm.App({id: 'application-0-wkqnz'});
 
 
 
-createApp(App).use(store).use(router).use(messagePlugin).component("Spinner", Spinner).mount('#app')
+createApp(App).use(store).use(router).component("Spinner", Spinner).mount('#app')
 
 
 
